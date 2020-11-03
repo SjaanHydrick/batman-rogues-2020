@@ -31,7 +31,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-  test('returns rogues', async() => {
+  test('returns animals', async() => {
 
     const expectation = [
       {
@@ -55,7 +55,7 @@ describe('app routes', () => {
     ];
 
     const data = await fakeRequest(app)
-      .get('/rogues')
+      .get('/animals')
       .expect('Content-Type', /json/)
       .expect(200);
 
