@@ -21,7 +21,7 @@ async function run() {
                     id SERIAL PRIMARY KEY NOT NULL REFERENCES users(id),
                     alias VARCHAR(512) NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    alive VARCHAR(512) NOT NULL,
+                    alive BOOLEAN NOT NULL,
                     category VARCHAR(512) NOT NULL,
                     year INTEGER NOT NULL
             );

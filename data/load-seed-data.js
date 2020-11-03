@@ -28,7 +28,7 @@ async function run() {
       rogues.map(rogue => {
         return client.query(`
                     INSERT INTO rogues (user_id, alias, name, alive, category, year)
-                    VALUES ($1, $2, $3, $4, $5);
+                    VALUES ($1, $2, $3, $4, $5, $6);
                 `,
         [user.id, rogue.alias, rogue.name, rogue.alive, rogue.category, rogue.year]);
       })
