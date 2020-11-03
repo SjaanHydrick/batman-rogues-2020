@@ -18,7 +18,8 @@ async function run() {
                     hash VARCHAR(512) NOT NULL
                 );           
                 CREATE TABLE rogues (
-                    id SERIAL PRIMARY KEY NOT NULL REFERENCES users(id),
+                    id SERIAL PRIMARY KEY NOT NULL,
+                    user_id INTEGER NOT NULL REFERENCES users(id),
                     alias VARCHAR(512) NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     alive BOOLEAN NOT NULL,

@@ -3,7 +3,7 @@ module.exports = [
     alias: 'Bane',
     name: 'Edward',
     alive: true,
-    category: 'Central Rogue',
+    category: 'Central Rogues',
     year: 1993
   },
   {
