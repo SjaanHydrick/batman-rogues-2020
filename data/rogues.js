@@ -227,7 +227,7 @@ module.exports = [
     alias: 'Solomon Grundy',
     name: 'Cyrus Gold',
     alive: false,
-    category_id: 'Secondary Rogue',
+    category_id: 3,
     year: 1944
   },
   {
