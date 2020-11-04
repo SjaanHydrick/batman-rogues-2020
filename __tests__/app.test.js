@@ -69,6 +69,7 @@ describe('app routes', () => {
       const data = await fakeRequest(app)
         .post('/rogues')
         .send({
+          user_id: 1,
           alias: 'Catman',
           name: 'Thomas Blake',
           alive: true,
@@ -80,6 +81,39 @@ describe('app routes', () => {
 
       const allRogues = await fakeRequest(app)
         .get('/rogues')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+      expect(allRogues.body.length).toEqual(36);
+    });
+
+    test.only('modifies a rogue inside of DB and returns it', async() => {
+      const expectation = {
+        id: 1,
+        user_id: 1,
+        alias: 'Bane',
+        name: 'Antonio Diego',
+        alive: false,
+        category: 'Central Rogues',
+        year: 1993
+      };
+
+      const data = await fakeRequest(app)
+        .put('/rogues/1')
+        .send({
+          user_id: 1,
+          alias: 'Bane',
+          name: 'Antonio Diego',
+          alive: false,
+          category: 'Central Rogues',
+          year: 1993
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allRogues = await fakeRequest(app)
+        .get('/rogues/1')
         .expect('Content-Type', /json/)
         .expect(200);
 
