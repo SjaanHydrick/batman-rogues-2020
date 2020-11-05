@@ -44,6 +44,28 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
+    test.only('returns categorys', async() => {
+      const expectation = [{ 'id':1, 'name':'Central Rogues' }, { 'id':2, 'name':'Organized Crime' }, { 'id':3, 'name':'Secondary Rogues' }, { 'id':4, 'name':'Recurring Rogues' }, { 'id':5, 'name':'League of Assassins' }];
+
+      const data = await fakeRequest(app)
+        .get('/categories')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
+    test.only('returns updated rogues', async() => {
+      const expectation = [{ 'id':35, 'user_id':1, 'alias':'Ventriloquist', 'name':'Arnold Wesker', 'alive':true, 'year':1988, 'category':'Central Rogues' }, { 'id':32, 'user_id':1, 'alias':'Scarecrow', 'name':'Professor Jonathan Crane', 'alive':true, 'year':1941, 'category':'Central Rogues' }, { 'id':30, 'user_id':1, 'alias':'Mr. Zsasz', 'name':'Victor Zsasz', 'alive':true, 'year':1992, 'category':'Central Rogues' }, { 'id':28, 'user_id':1, 'alias':'Man-Bat', 'name':'Dr. Kirk Langstrom', 'alive':true, 'year':1970, 'category':'Central Rogues' }, { 'id':27, 'user_id':1, 'alias':'Two-Face', 'name':'Harvey Dent', 'alive':true, 'year':1942, 'category':'Central Rogues' }, { 'id':25, 'user_id':1, 'alias':'The Riddler', 'name':'Edward Nigma/Nashton', 'alive':true, 'year':1948, 'category':'Central Rogues' }, { 'id':24, 'user_id':1, 'alias':'The Red Hood', 'name':'Jason Todd', 'alive':true, 'year':1987, 'category':'Central Rogues' }, { 'id':22, 'user_id':1, 'alias':'Poison Ivy', 'name':'Dr. Pamela Lillian Isley', 'alive':true, 'year':1966, 'category':'Central Rogues' }, { 'id':21, 'user_id':1, 'alias':'The Penguin', 'name':'Oswald Chesterfield Cobblepot', 'alive':true, 'year':1941, 'category':'Central Rogues' }, { 'id':19, 'user_id':1, 'alias':'Mr. Freeze', 'name':'Dr. Victor Fries', 'alive':true, 'year':1959, 'category':'Central Rogues' }, { 'id':18, 'user_id':1, 'alias':'Mad Hatter', 'name':'Dr. Jervis Tetch', 'alive':true, 'year':1948, 'category':'Central Rogues' }, { 'id':17, 'user_id':1, 'alias':'Killer Croc', 'name':'Waylon Jones', 'alive':true, 'year':1983, 'category':'Central Rogues' }, { 'id':16, 'user_id':1, 'alias':'The Joker', 'name':'Jack Napier', 'alive':true, 'year':1940, 'category':'Central Rogues' }, { 'id':15, 'user_id':1, 'alias':'Hush', 'name':'Dr. Thomas Elliot', 'alive':true, 'year':2003, 'category':'Central Rogues' }, { 'id':14, 'user_id':1, 'alias':'Hugo Strange', 'name':'Professor Hugo Strange', 'alive':true, 'year':1940, 'category':'Central Rogues' }, { 'id':12, 'user_id':1, 'alias':'Harley Quinn', 'name':'Dr. Harleen F. Quinzel', 'alive':true, 'year':1992, 'category':'Central Rogues' }, { 'id':9, 'user_id':1, 'alias':'Firefly', 'name':'Garfield Lynns', 'alive':true, 'year':1952, 'category':'Central Rogues' }, { 'id':8, 'user_id':1, 'alias':'Deathstroke', 'name':'Slade Wilson', 'alive':false, 'year':1980, 'category':'Central Rogues' }, { 'id':7, 'user_id':1, 'alias':'Deadshot', 'name':'Floyd Lawton', 'alive':true, 'year':1950, 'category':'Central Rogues' }, { 'id':6, 'user_id':1, 'alias':'Clayface', 'name':'Basil Karlo', 'alive':false, 'year':1940, 'category':'Central Rogues' }, { 'id':4, 'user_id':1, 'alias':'Catwoman', 'name':'Selina Kyle', 'alive':true, 'year':1940, 'category':'Central Rogues' }, { 'id':2, 'user_id':1, 'alias':'Black Mask', 'name':'Roman Sionis', 'alive':false, 'year':1985, 'category':'Central Rogues' }, { 'id':1, 'user_id':1, 'alias':'Bane', 'name':'Edward', 'alive':true, 'year':1993, 'category':'Central Rogues' }, { 'id':26, 'user_id':1, 'alias':'The Roman', 'name':'Carmine Falcone', 'alive':false, 'year':1987, 'category':'Organized Crime' }, { 'id':13, 'user_id':1, 'alias':'Holiday', 'name':'Alberto Falcone', 'alive':false, 'year':1996, 'category':'Organized Crime' }, { 'id':11, 'user_id':1, 'alias':'Hangman', 'name':'Sofia Gigante', 'alive':false, 'year':1999, 'category':'Organized Crime' }, { 'id':3, 'user_id':1, 'alias':'The Boss', 'name':'Sal Maroni', 'alive':false, 'year':1942, 'category':'Organized Crime' }, { 'id':33, 'user_id':1, 'alias':'Solomon Grundy', 'name':'Cyrus Gold', 'alive':false, 'year':1944, 'category':'Secondary Rogues' }, { 'id':31, 'user_id':1, 'alias':'Professor Pyg', 'name':'Dr. Lazlo Valentin', 'alive':true, 'year':2007, 'category':'Secondary Rogues' }, { 'id':29, 'user_id':1, 'alias':'Maxie Zeus', 'name':'Maximillian Zeus', 'alive':true, 'year':1979, 'category':'Secondary Rogues' }, { 'id':10, 'user_id':1, 'alias':'Great White Shark', 'name':'Warren White', 'alive':true, 'year':2004, 'category':'Secondary Rogues' }, { 'id':5, 'user_id':1, 'alias':'Calendar Man', 'name':'Julian Gregory Day', 'alive':true, 'year':1958, 'category':'Secondary Rogues' }, { 'id':20, 'user_id':1, 'alias':'Onomatopoeia', 'name':'N/A', 'alive':true, 'year':2002, 'category':'Recurring Rogues' }, { 'id':34, 'user_id':1, 'alias':'Talia al Ghul', 'name':'Talia al Ghul', 'alive':true, 'year':1971, 'category':'League of Assassins' }, { 'id':23, 'user_id':1, 'alias':'Ra\'s al Ghul', 'name':'Ra\'s al Ghul', 'alive':true, 'year':1971, 'category':'League of Assassins' }];
+
+      const data = await fakeRequest(app)
+        .get('/rogues')
+        .expect('Content-Type', /json/)
+        .expect(200);
+      
+      expect(data.body).toEqual(expectation);
+    });
+
     test('returns a single rogue', async() => {
       const expectation = { 'id':28, 'user_id':1, 'alias':'Man-Bat', 'name':'Dr. Kirk Langstrom', 'alive':true, 'category':'Central Rogues', 'year':1970 };
 
@@ -55,7 +77,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test.only('adds a rogue to the DB and returns it', async() => {
+    test('adds a rogue to the DB and returns it', async() => {
       const expectation = {
         id: 36,
         user_id: 1,
@@ -88,7 +110,7 @@ describe('app routes', () => {
       expect(allRogues.body.length).toEqual(36);
     });
 
-    test.only('modifies a rogue inside of DB and returns it', async() => {
+    test('modifies a rogue inside of DB and returns it', async() => {
       const expectation = {
         id: 1,
         user_id: 1,
@@ -115,7 +137,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test.only('deletes a rogue', async() => {
+    test('deletes a rogue', async() => {
       const expectation = [
         { 'id':2, 'user_id':1, 'alias':'Black Mask', 'name':'Roman Sionis', 'alive':false, 'category':'Central Rogues', 'year':1985 }, { 'id':3, 'user_id':1, 'alias':'The Boss', 'name':'Sal Maroni', 'alive':false, 'category':'Organized Crime', 'year':1942 }, { 'id':4, 'user_id':1, 'alias':'Catwoman', 'name':'Selina Kyle', 'alive':true, 'category':'Central Rogues', 'year':1940 }, { 'id':5, 'user_id':1, 'alias':'Calendar Man', 'name':'Julian Gregory Day', 'alive':true, 'category':'Secondary Rogues', 'year':1958 }, { 'id':6, 'user_id':1, 'alias':'Clayface', 'name':'Basil Karlo', 'alive':false, 'category':'Central Rogues', 'year':1940 }, { 'id':7, 'user_id':1, 'alias':'Deadshot', 'name':'Floyd Lawton', 'alive':true, 'category':'Central Rogues', 'year':1950 }, { 'id':8, 'user_id':1, 'alias':'Deathstroke', 'name':'Slade Wilson', 'alive':false, 'category':'Central Rogues', 'year':1980 }, { 'id':9, 'user_id':1, 'alias':'Firefly', 'name':'Garfield Lynns', 'alive':true, 'category':'Central Rogues', 'year':1952 }, { 'id':10, 'user_id':1, 'alias':'Great White Shark', 'name':'Warren White', 'alive':true, 'category':'Secondary Rogues', 'year':2004 }, { 'id':11, 'user_id':1, 'alias':'Hangman', 'name':'Sofia Gigante', 'alive':false, 'category':'Organized Crime', 'year':1999 }, { 'id':12, 'user_id':1, 'alias':'Harley Quinn', 'name':'Dr. Harleen F. Quinzel', 'alive':true, 'category':'Central Rogues', 'year':1992 }, { 'id':13, 'user_id':1, 'alias':'Holiday', 'name':'Alberto Falcone', 'alive':false, 'category':'Organized Crime', 'year':1996 }, { 'id':14, 'user_id':1, 'alias':'Hugo Strange', 'name':'Professor Hugo Strange', 'alive':true, 'category':'Central Rogues', 'year':1940 }, { 'id':15, 'user_id':1, 'alias':'Hush', 'name':'Dr. Thomas Elliot', 'alive':true, 'category':'Central Rogues', 'year':2003 }, { 'id':16, 'user_id':1, 'alias':'The Joker', 'name':'Jack Napier', 'alive':true, 'category':'Central Rogues', 'year':1940 }, { 'id':17, 'user_id':1, 'alias':'Killer Croc', 'name':'Waylon Jones', 'alive':true, 'category':'Central Rogues', 'year':1983 }, { 'id':18, 'user_id':1, 'alias':'Mad Hatter', 'name':'Dr. Jervis Tetch', 'alive':true, 'category':'Central Rogues', 'year':1948 }, { 'id':19, 'user_id':1, 'alias':'Mr. Freeze', 'name':'Dr. Victor Fries', 'alive':true, 'category':'Central Rogues', 'year':1959 }, { 'id':20, 'user_id':1, 'alias':'Onomatopoeia', 'name':'N/A', 'alive':true, 'category':'Recurring Rogues', 'year':2002 }, { 'id':21, 'user_id':1, 'alias':'The Penguin', 'name':'Oswald Chesterfield Cobblepot', 'alive':true, 'category':'Central Rogues', 'year':1941 }, { 'id':22, 'user_id':1, 'alias':'Poison Ivy', 'name':'Dr. Pamela Lillian Isley', 'alive':true, 'category':'Central Rogues', 'year':1966 }, { 'id':23, 'user_id':1, 'alias':'Ra\'s al Ghul', 'name':'Ra\'s al Ghul', 'alive':true, 'category':'League of Assassins', 'year':1971 }, { 'id':24, 'user_id':1, 'alias':'The Red Hood', 'name':'Jason Todd', 'alive':true, 'category':'Central Rogues', 'year':1987 }, { 'id':25, 'user_id':1, 'alias':'The Riddler', 'name':'Edward Nigma/Nashton', 'alive':true, 'category':'Central Rogues', 'year':1948 }, { 'id':26, 'user_id':1, 'alias':'The Roman', 'name':'Carmine Falcone', 'alive':false, 'category':'Organized Crime', 'year':1987 }, { 'id':27, 'user_id':1, 'alias':'Two-Face', 'name':'Harvey Dent', 'alive':true, 'category':'Central Rogues', 'year':1942 }, { 'id':28, 'user_id':1, 'alias':'Man-Bat', 'name':'Dr. Kirk Langstrom', 'alive':true, 'category':'Central Rogues', 'year':1970 }, { 'id':29, 'user_id':1, 'alias':'Maxie Zeus', 'name':'Maximillian Zeus', 'alive':true, 'category':'Secondary Rogues', 'year':1979 }, { 'id':30, 'user_id':1, 'alias':'Mr. Zsasz', 'name':'Victor Zsasz', 'alive':true, 'category':'Central Rogues', 'year':1992 }, { 'id':31, 'user_id':1, 'alias':'Professor Pyg', 'name':'Dr. Lazlo Valentin', 'alive':true, 'category':'Secondary Rogues', 'year':2007 }, { 'id':32, 'user_id':1, 'alias':'Scarecrow', 'name':'Professor Jonathan Crane', 'alive':true, 'category':'Central Rogues', 'year':1941 }, { 'id':33, 'user_id':1, 'alias':'Solomon Grundy', 'name':'Cyrus Gold', 'alive':false, 'category':'Secondary Rogue', 'year':1944 }, { 'id':34, 'user_id':1, 'alias':'Talia al Ghul', 'name':'Talia al Ghul', 'alive':true, 'category':'League of Assassins', 'year':1971 }, { 'alias':'Catman', 'alive':true, 'category':'Secondary Rogue', 'id':36, 'name': 'Thomas Blake', 'user_id': 1, 'year': 1963 }, { 'alias': 'Bane', 'alive': false, 'category': 'Central Rogues', 'id': 1, 'name': 'Antonio Diego', 'user_id': 1, 'year': 1993,
         }
