@@ -40,8 +40,7 @@ async function run() {
       rogues.map(rogue => {
         return client.query(`
                     INSERT INTO rogues (user_id, alias, name, alive, category_id, year)
-                    VALUES ($1, $2, $3, $4, $5, $6)
-                    ORDER BY alias ASC;
+                    VALUES ($1, $2, $3, $4, $5, $6);
                 `,
         [user.id, rogue.alias, rogue.name, rogue.alive, rogue.category_id, rogue.year]);
       })
